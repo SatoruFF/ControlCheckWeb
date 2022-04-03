@@ -1,5 +1,5 @@
 # ControlCheckWeb
-First make fullStack landing web site with using:
+Create fullStack landing web site with using:
 * figma
 * zeplin
 * gulp
