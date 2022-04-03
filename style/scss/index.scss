@@ -1,0 +1,15 @@
+@import "nullstyle.scss"; //файл обнуляющих стилей
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+$red: rgb(255, 22, 22);
+$normalfont:'Montserrat', sans-serif;
+@mixin fontz($f) {
+    font-size: $f;
+}
+%maintemplate {
+    color: $red;
+    font-family: $normalfont;
+}
+h1 {
+    @include fontz(80px);
+    @extend %maintemplate;
+}
