@@ -3,12 +3,12 @@ const res = require('express/lib/response');
 const { MongoClient } = require('mongodb');
 const url = 'mongodb://localhost:27017';
 const client = new MongoClient(url);
-const dbName = 'dancers';
+const dbName = 'Clientss';
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 const port = 3000
-app.use(express.static('frontend'));
+app.use(express.static('dist'));
 app.get('/getusers', (req, res) =>{
 	client.connect();
 	const db = client.db(dbName);
@@ -25,9 +25,9 @@ app.post('/regform', (req, res) => {
 	const newUser = req.body;
 	userCollection.countDocuments({})
 	.then((value)=> {
-		if (value > 2) {
-			userCollection.find({}).limit(2)
-			return res.json({message: `Превышен лимит записи, всего записей ${value}`}).end();
+		if (value > 10) {
+			userCollection.find({}).limit(10)
+			return res.json({message: `Not enough places`}).end();
 		}
 	}).catch(()=> {
 		console.log('Limit error')
@@ -48,7 +48,7 @@ app.post('/regform', (req, res) => {
 				if(user == null){
 				userCollection.insertOne(newUser)
 				.then(()=>{
-					res.json({error: false, message: `Пользователь записан!`}).end();
+					res.json({error: false, message: `User has been created`}).end();
 					return
 				})
 				.catch((err)=> {
@@ -57,7 +57,7 @@ app.post('/regform', (req, res) => {
 					return
 				})	  
 				} else
-					res.json({error: true , message: 'Пользователь уже существует'}).end();
+					res.json({error: true , message: 'user is exists!'}).end();
 				}).catch((err)=>{
 					console.log('error in DB');
 					res.status(500).send('server side error');
