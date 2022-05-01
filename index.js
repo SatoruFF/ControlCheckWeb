@@ -23,11 +23,35 @@ app.post('/regform', (req, res) => {
 	const db = client.db(dbName);
 	const userCollection = db.collection('user'); 
 	const newUser = req.body;
+
 	userCollection.countDocuments({})
 	.then((value)=> {
-		if (value > 10) {
+		if (value == 10) {
 			userCollection.find({}).limit(10)
 			return res.json({message: `Not enough places`}).end();
+		} else {
+			userCollection.findOne(
+				{email: newUser.email,
+				 phone: newUser.phone})
+				.then((user) => {
+						if(user == null){
+						userCollection.insertOne(newUser)
+						.then(()=>{
+							res.json({error: false, message: `User has been created`}).end();
+							return
+						})
+						.catch((err)=> {
+							console.log('Insert data to Db', err)
+							client.close();
+							return
+						})	  
+						} else
+							res.json({error: true , message: 'user is exists!'}).end();
+						}).catch((err)=>{
+							console.log('error in DB');
+							res.status(500).send('server side error');
+							client.close();
+						})		
 		}
 	}).catch(()=> {
 		console.log('Limit error')
@@ -35,36 +59,7 @@ app.post('/regform', (req, res) => {
 		client.close()
 		return
 	})
-	// async function lim() {
-	// 	const value = await userCollection.countDocuments({})
-	// 	if (value > 2) return res.status(403).json({message: 'Количество пользователей больше количества мест'}).end();
-	// 	client.close();
-	// }
-	// lim()
-	userCollection.findOne(
-		{email: newUser.email,
-		 phone: newUser.phone})
-		.then((user) => {
-				if(user == null){
-				userCollection.insertOne(newUser)
-				.then(()=>{
-					res.json({error: false, message: `User has been created`}).end();
-					return
-				})
-				.catch((err)=> {
-					console.log('Insert data to Db', err)
-					client.close();
-					return
-				})	  
-				} else
-					res.json({error: true , message: 'user is exists!'}).end();
-				}).catch((err)=>{
-					console.log('error in DB');
-					res.status(500).send('server side error');
-					client.close();
-				})
-						return;
-				})
+})
 app.listen(port, () => {
   console.log(`Application listening on port ${port}`)
 })
