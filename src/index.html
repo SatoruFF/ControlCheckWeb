@@ -1,6 +1,44 @@
 @@include('parts/header.html')
-
-<h1>Home page</h1>
-
-
+<div class="wrapper">
+    <div class="conteiner">
+        <div class="firstPage">
+            <div class="sidebar">
+                <p>I know you want to join our ranks. We invite you to an amazing journey</p>
+            </div>
+            <div class="void"></div>
+            <div class="sideText"><p>senatus populusque <br> romanus</p></div>
+            <div class="timerSpace">
+                <div class="timer">
+                    <div class="timer__items">
+                      <div class="timer__item timer__days">00</div>
+                      <div class="timer__item timer__hours">00</div>
+                      <div class="timer__item timer__minutes">00</div>
+                      <div class="timer__item timer__seconds">00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="secondPage">
+            <div class="title"><p>WANT TO JOIN US?</p></div>
+            <div class="advert">
+            <div class="formSpace">
+                <form form action="#" method="post" id="regForm">
+                    <div><h1>Write to us</h1></div>
+                    <div class="info">
+                    <div><input class="form__item" type="text" name="name" placeholder="Name"></div>
+                    <div><input class="form__item" type="email" name="email" placeholder="Email"></div>
+                    <div><input class="form__item" type="text" name="phone" placeholder="Phone"></div>
+                    </div>
+                    <button class="submit form__item" type="submit" href="/">Submit</button>
+                    <div id="regStatus"></div>
+                </form>
+            </div>
+            <div class="map">
+                <div class="map__title"><p>Can you save my heavy dirty soul?</p></div>
+                <div class="map__address"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2242.4141308419316!2d49.176015115811424!3d55.80341048056691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415eb2824b904801%3A0xcb2f15cc51a1aa91!2z0YPQuy4g0J3QvtCy0LDRgtC-0YDQvtCyLCAyLCDQmtCw0LfQsNC90YwsINCg0LXRgdC_LiDQotCw0YLQsNGA0YHRgtCw0L0sIDQyMDA2MQ!5e0!3m2!1sru!2sru!4v1651415349875!5m2!1sru!2sru" width="350" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
 @@include('parts/footer.html')

@@ -17,15 +17,22 @@
   },
   "homepage": "https://github.com/Yagamilighttt/ControlCheckWeb#readme",
   "devDependencies": {
+    "body-parser": "^1.20.0",
     "browser-sync": "^2.27.9",
     "del": "^6.0.0",
+    "express": "^4.18.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
     "gulp-file-include": "^2.3.0",
     "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-minify": "^3.1.0",
     "gulp-sass": "^5.1.0",
+    "mongodb": "^4.5.0",
+    "mongoose": "^6.3.1",
+    "nodemon": "^2.0.16",
     "sass": "^1.49.11"
   }
 }

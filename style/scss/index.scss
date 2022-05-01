@@ -1,15 +1,227 @@
 @import "nullstyle.scss"; //файл обнуляющих стилей
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-$red: rgb(255, 22, 22);
-$normalfont:'Montserrat', sans-serif;
-@mixin fontz($f) {
-    font-size: $f;
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+%displaytmp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
 }
-%maintemplate {
-    color: $red;
+$red: rgb(255, 22, 22);
+$normalfont:'Oswald', sans-serif;
+
+body::before {
+    background: url(images/bbb.jpg) no-repeat center center;
+    background-size: cover;
+    content: ' ';
+    min-height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    min-width: 100%;
+    will-change: transform;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.wrapper {
     font-family: $normalfont;
 }
-h1 {
-    @include fontz(80px);
-    @extend %maintemplate;
+
+.timer {
+    border: 2px dashed pink;
+    padding: 20px;
+}
+
+.firstPage {
+    height: 800px;
+    display: grid;
+    grid-template-columns: 85%;
+    grid-template-rows: 30%;
+}
+
+.sideText {
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.sideText p{
+    color: #ffffff;
+    font-size: 36px;
+    opacity: 60%;
+    &:hover{
+        color: $red;
+    }
+}
+
+.sidebar {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    background-color: $red;
+    padding: 10px;
+    @extend %displaytmp
+}
+
+.sidebar p{
+    color: #ffffff;
+    font-size: 48px;
+}
+
+.timerSpace {
+    grid-row-start: 3;
+    grid-row-end: 3;
+    @extend %displaytmp
+}
+
+.timer__items {
+    display: flex;
+    font-size: 48px;
+  }
+  .timer__item {
+    color: #ffffff;
+    position: relative;
+    min-width: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 15px;
+    text-align: center;
+  }
+  .timer__item::before {
+    content: attr(data-title);
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    font-size: 14px;
+  }
+  .timer__item:not(:last-child)::after {
+    content: ':';
+    position: absolute;
+    right: -15px;
+  }
+
+.secondPage {
+    height: 1024px;
+
+}
+
+.title {
+    width: 100%;
+    height: 200px;
+    background-color: $red;
+    @extend %displaytmp
+}
+
+.title p {
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.advert {
+    width: 100%;
+    height: 900px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.map {
+    padding: 30px;
+    min-width: 400px;
+    min-height: 400px;
+    background-color: black;
+    @extend %displaytmp
+}
+
+.map__title {
+    font-size: 29px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    &:hover {
+        color: red;
+    }
+}
+
+.formSpace {
+    background-color: #000000;
+    min-width: 400px;
+    min-height: 400px;
+    @extend %displaytmp
+}
+
+.formSpace div {
+    margin-bottom: 25px;
+}
+
+.formSpace input {
+    min-width: 350px;
+    min-height: 40px;
+    &::placeholder {
+        color: grey;
+    }
+}
+
+.formSpace h1{
+    color: #ffffff;
+    font-size: 24px;
+    &:hover {
+        color: red;
+    }
+}
+
+.formSpace button {
+    width: 100px;
+    height: 35px;
+    font-family: $normalfont;
+}
+
+.warning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30px;
+    font-size: medium;
+    margin-top: 15px;
+    border-radius: 15px;
+    color: #ffffff;
+    font-family: $normalfont;
+  }
+
+  #regStatus {
+    font-family: $normalfont;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30px;
+    font-size: medium;
+    margin-top: 15px;
+    border-radius: 15px;
+  }
+
+.footer {
+    width: 100%;
+    background-color: #000000;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer__item img {
+    width: 60px;
+    height: 60px;
+}
+
+.footer__title {
+    color: #ffffff;
+    font-family: $normalfont;
+    &:hover {
+        color: red;
+    }
 }
