@@ -5,9 +5,8 @@ const tim = new Date(2022, 04, 31);
 const differ = tim - new Date();
 if (differ <= 0) {
   document.querySelector('.submit').remove();
-  regStatus.innerHTML = "Извините, но время на запись истекло!";
+  regStatus.innerHTML = "Sorry, but timer is out";
 }
-
 // Запрос
 regForm.addEventListener('submit', (event)=>{
     event.preventDefault();
@@ -28,7 +27,6 @@ regForm.addEventListener('submit', (event)=>{
     }
     req.send(JSON.stringify(data));		
 })
-
 // логика таймера
 document.addEventListener('DOMContentLoaded', function () {
     const deadline = new Date(2022, 04, 31);

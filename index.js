@@ -1,7 +1,7 @@
 const express = require('express');
 const res = require('express/lib/response');
 const { MongoClient } = require('mongodb');
-const url = 'mongodb://localhost:27017';
+const url = 'mongodb://0.0.0.0:27017';
 const client = new MongoClient(url);
 const dbName = 'Clientss';
 const app = express()
@@ -16,14 +16,12 @@ app.get('/getusers', (req, res) =>{
 		res.json(users);
 	})
 })
-
 app.post('/regform', (req, res) => {
 	if(!req.body) return res.status(400).send('Bad Request');
 	client.connect();
 	const db = client.db(dbName);
 	const userCollection = db.collection('user'); 
 	const newUser = req.body;
-
 	userCollection.countDocuments({})
 	.then((value)=> {
 		if (value == 10) {

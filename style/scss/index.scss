@@ -30,7 +30,7 @@ body::before {
 }
 
 .timer {
-    border: 2px dashed pink;
+    border: 2px dashed rgb(0, 0, 0);
     padding: 20px;
 }
 
@@ -47,9 +47,9 @@ body::before {
 }
 
 .sideText p{
-    color: #ffffff;
+    color: #000000;
     font-size: 36px;
-    opacity: 60%;
+    opacity: 90%;
     &:hover{
         color: $red;
     }
@@ -80,7 +80,7 @@ body::before {
     font-size: 48px;
   }
   .timer__item {
-    color: #ffffff;
+    color: #000000;
     position: relative;
     min-width: 60px;
     margin-left: 10px;
