@@ -1,5 +1,6 @@
 @import "nullstyle.scss"; //файл обнуляющих стилей
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 %displaytmp {
     display: flex;
@@ -8,8 +9,9 @@
     text-align: center;
     flex-direction: column;
 }
-$red: rgb(255, 22, 22);
-$normalfont:'Oswald', sans-serif;
+$red: rgb(255, 0, 0);
+// $normalfont:'Oswald', sans-serif;
+$normalfont:'Montserrat', sans-serif;
 
 body::before {
     background: url(images/bbb.jpg) no-repeat center center;
@@ -69,6 +71,13 @@ body::before {
     font-size: 48px;
 }
 
+.void {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
 .timerSpace {
     grid-row-start: 3;
     grid-row-end: 3;
@@ -122,7 +131,7 @@ body::before {
 
 .advert {
     width: 100%;
-    height: 900px;
+    min-height: 900px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -214,8 +223,8 @@ body::before {
 }
 
 .footer__item img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 .footer__title {
@@ -225,3 +234,27 @@ body::before {
         color: red;
     }
 }
+
+@media screen and (max-width: 992px) {
+    .advert {
+      flex-direction: column;
+      margin-bottom: 300px;
+    }
+    .map {
+        margin-bottom: 90px;
+    }
+    .formSpace {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .footer {
+        margin-top: 160px;
+    }
+    .sidebar {
+        z-index: -10;
+    }
+    .map {
+        width: 300px;
+        height: 300px;
+    }
+  }

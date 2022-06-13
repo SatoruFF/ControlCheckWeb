@@ -1,7 +1,7 @@
 const regForm = document.getElementById('regForm');
 const regStatus = document.getElementById('regStatus');
 // ошибка обнуления таймера
-const tim = new Date(2022, 04, 31);
+const tim = new Date(2022, 07, 31);
 const differ = tim - new Date();
 if (differ <= 0) {
   document.querySelector('.submit').remove();
@@ -16,7 +16,6 @@ regForm.addEventListener('submit', (event)=>{
     req.open('POST', 'http://localhost:3000/regform');
     req.responseType = "json";
     req.setRequestHeader('Content-Type', 'application/json');
-
     req.onreadystatechange = function() {
         if (this.readyState != 4) return;
         console.log(typeof this.response)
@@ -29,7 +28,7 @@ regForm.addEventListener('submit', (event)=>{
 })
 // логика таймера
 document.addEventListener('DOMContentLoaded', function () {
-    const deadline = new Date(2022, 04, 31);
+    const deadline = new Date(2022, 07, 31);
     let timerId = null;
     function declensionNum(num, words) {
       return words[(num % 100 > 4 && num % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(num % 10 < 5) ? num % 10 : 5]];
