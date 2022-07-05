@@ -8,11 +8,11 @@ Create fullStack landing web site with using:
 * node.js
 * DB
 Start project with gulp:
-<npm install>
-<gulp serve>
+```npm install
+gulp serve```
 Start project with nodeJS:
-<npm install>
-<node index.js>
+```npm install
+node index.js```
 Start project with nodemon:
-<npm install>
-<npm run dev>
+```npm install
+npm run dev```
